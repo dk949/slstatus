@@ -9,6 +9,8 @@ static const char unknown_str[] = "n/a";
 /* maximum output string length */
 #define MAXLEN 2048
 
+#define DELIM { separator,        " | ",            NULL    }
+
 /*
  * function            description                     argument (example)
  *
@@ -64,6 +66,27 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function         format          argument */
+    { driver_active,    "CAM: %s",      "uvcvideo"                              },
+    DELIM,
+    { env_var,          "PAC: %s",      "NUMPACKAGES"                           },
+    DELIM,
+    { check_updates,    "UPD: %s",      NULL                                    },
+    DELIM,
+    { disk_perc,        "DISK: %s%%",   "/"                                     },
+    DELIM,
+    { ram_perc,         "RAM: %s%%",    NULL                                    },
+    DELIM,
+    { cpu_perc,         "CPU: %s%%",    NULL                                    },
+    DELIM,
+    { run_command,      "%s",           "highestUsageProcess"                   },
+    DELIM,
+    { temp,             "%s°C",         "/sys/class/thermal/thermal_zone9/temp" },
+    DELIM,
+    { run_command,      "Master: %s",   "volume-get"                            },
+    DELIM,
+    { battery_perc,     "BAT0: %s%%",   "BAT0"                                  },
+    DELIM,
+	{ datetime,         "%s",           "%F %T"                                 },
+	//{ datetime,         "%s",           "%F %R"                                 },
 };

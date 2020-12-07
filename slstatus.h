@@ -82,3 +82,14 @@ const char *vol_perc(const char *card);
 /* wifi */
 const char *wifi_perc(const char *interface);
 const char *wifi_essid(const char *interface);
+
+
+
+/* user modules */
+const char *env_var(const char *env);
+
+const char *check_updates(void);
+
+const char *driver_active(const char *mod_name);
+
+const char *run_command_timed(const char *cmd);
