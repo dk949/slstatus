@@ -121,12 +121,13 @@ main(int argc, char *argv[])
 			intspec.tv_nsec = (interval % 1000) * 1E6;
 			difftimespec(&wait, &intspec, &diff);
 
-			if (wait.tv_sec >= 0) {
-				if (nanosleep(&wait, NULL) < 0 &&
-				    errno != EINTR) {
-					die("nanosleep:");
-				}
-			}
+            if (wait.tv_sec >= 0) {
+                nanosleep(&wait, NULL);
+                /*if (nanosleep(&wait, NULL) < 0 &&*/
+                    /*errno != EINTR) {*/
+                    /*die("nanosleep:");*/
+                /*}*/
+            }
 		}
 	} while (!done);
 
