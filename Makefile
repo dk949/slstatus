@@ -30,6 +30,7 @@ COM =\
     components/wifi\
     components/env_var\
     components/check_updates\
+    components/check_packages\
     components/driver_active\
     components/run_command_timed\
 

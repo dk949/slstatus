@@ -90,6 +90,9 @@ const char *env_var(const char *env);
 
 const char *check_updates(void);
 
+const char *check_packages(void);
+
 const char *driver_active(const char *mod_name);
+
 
 const char *run_command_timed(const char *cmd);
