@@ -67,8 +67,8 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function         format          argument */
-    { driver_active,    "CAM: %s",      "uvcvideo"                              },
-    DELIM,
+    //{ driver_active,    "CAM: %s",      "uvcvideo"                              },
+    //DELIM,
     { check_packages,   "PAC: %s",      "/home/davidk/.cache/pacvars"           },
     DELIM,
     { check_updates,    "UPD: %s",      "/home/davidk/.cache/pacvars"           },
