@@ -144,3 +144,8 @@ pscanf(const char *path, const char *fmt, ...)
 
 	return (n == EOF) ? -1 : n;
 }
+
+const char *
+percent_pad(unsigned int i){
+    return i < 10 ? "  " : i < 100 ? " " : "";
+}
