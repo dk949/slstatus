@@ -67,8 +67,6 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function         format          argument */
-    //{ driver_active,    "CAM: %s",      "uvcvideo"                              },
-    //DELIM,
     { check_packages,   "PAC: %s",      "/home/davidk/.cache/pacvars"           },
     DELIM,
     { check_updates,    "UPD: %s",      "/home/davidk/.cache/pacvars"           },
@@ -78,12 +76,8 @@ static const struct arg args[] = {
     { ram_perc,         "RAM: %s%%",    NULL                                    },
     DELIM,
     { cpu_perc,         "CPU: %s%%",    NULL                                    },
-    //DELIM,
-    //{ run_command,      "%s",           "highestUsageProcess"                   },
     DELIM,
     { temp,             "%s°C",         "/sys/class/thermal/thermal_zone8/temp" },
-    DELIM,
-    { run_command,      "Master: %s",   "volume-get"                            },
     DELIM,
     { battery_perc,     "BAT0: %s%%",         "BAT0"                                  },
     DELIM,
