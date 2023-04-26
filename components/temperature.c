@@ -15,8 +15,16 @@
 		if (pscanf(file, "%ju", &temp) != 1) {
 			return NULL;
 		}
+// clang-format off
+        char const* tempchar =
+              temp <= 30000 ? ""
+            : temp <= 40000 ? ""
+            : temp <= 50000 ? ""
+            : temp <= 60000 ? ""
+            :                 "";
+// clang-format on
 
-		return bprintf("%ju", temp / 1000);
+		return bprintf("%s : %ju", tempchar, temp / 1000);
 	}
 #elif defined(__OpenBSD__)
 	#include <stdio.h>
