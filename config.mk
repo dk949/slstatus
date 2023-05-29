@@ -1,22 +1,25 @@
 # slstatus version
-VERSION = 0
+DATE         = $(shell git log -1 --format='%cd' --date=format:'%F')
+DATE_TIME    = $(DATE) 00:00
+COMMIT_COUNT = $(shell git rev-list --count HEAD --since="$(DATE_TIME)")
+VERSION      = $(shell date -d "$(DATE)" +'%Y%m%d')_$(COMMIT_COUNT)
 
 # customize below to fit your system
 
 # paths
-PREFIX = /usr/local
-MANPREFIX = $(PREFIX)/share/man
+DESTDIR   ?=
+PREFIX    ?= /usr/local
+MANPREFIX  = $(PREFIX)/share/man
 
-X11INC = /usr/X11R6/include
-X11LIB = /usr/X11R6/lib
+REQ_LIBS = x11
+
+LIBFLAGS = `pkg-config $(REQ_LIBS) --cflags`
+LIBS     = `pkg-config $(REQ_LIBS) --libs`
 
 # flags
-CPPFLAGS = -I$(X11INC) -D_DEFAULT_SOURCE
-CFLAGS   = -std=c99 -pedantic -Wall -Wextra -Os
-LDFLAGS  = -L$(X11LIB) -s
-# OpenBSD: add -lsndio
-# FreeBSD: add -lkvm
-LDLIBS   = -lX11
+CPPFLAGS = -D_DEFAULT_SOURCE -DVERSION=\"$(VERSION)\"
+CFLAGS   = -std=c99 -pedantic -Wall -Wextra -Os $(CPPFLAGS) $(LIBFLAGS)
+LDFLAGS  = $(LIBS) -s
 
 # compiler and linker
-CC = cc
+CC ?= gcc
