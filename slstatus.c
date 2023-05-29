@@ -11,6 +11,10 @@
 #include "slstatus.h"
 #include "util.h"
 
+#ifndef VERSION
+    #define VERSION "unknown"
+#endif
+
 struct arg {
 	const char *(*func)();
 	const char *fmt;
@@ -62,6 +66,9 @@ main(int argc, char *argv[])
 		case 's':
 			sflag = 1;
 			break;
+        case 'v':
+            printf("slstatus-" VERSION "\n");
+            return 0;
 		default:
 			usage();
 	} ARGEND
