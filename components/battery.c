@@ -75,27 +75,30 @@ battery_perc(const char *bat)
     char const *symbol = NULL;
     switch(battery_state(bat)){
         break;case Discharging:
-                 if(perc <= 10) symbol = " ";
-            else if(perc <= 20) symbol = " ";
-            else if(perc <= 30) symbol = " ";
-            else if(perc <= 40) symbol = " ";
-            else if(perc <= 50) symbol = " ";
-            else if(perc <= 60) symbol = " ";
-            else if(perc <= 70) symbol = " ";
-            else if(perc <= 80) symbol = " ";
-            else if(perc <= 90) symbol = " ";
-            else                symbol = " ";
+                 if(perc <= 10) symbol = "󰁺 ";
+            else if(perc <= 20) symbol = "󰁻 ";
+            else if(perc <= 30) symbol = "󰁼 ";
+            else if(perc <= 40) symbol = "󰁽 ";
+            else if(perc <= 50) symbol = "󰁾 ";
+            else if(perc <= 60) symbol = "󰁿 ";
+            else if(perc <= 70) symbol = "󰂀 ";
+            else if(perc <= 80) symbol = "󰂁 ";
+            else if(perc <= 90) symbol = "󰂂 ";
+            else                symbol = "󰁹 ";
         break;case Charging:
-                 if(perc <= 20) symbol = " ";
-            else if(perc <= 30) symbol = " ";
-            else if(perc <= 40) symbol = " ";
-            else if(perc <= 60) symbol = " ";
-            else if(perc <= 80) symbol = " ";
-            else if(perc <= 90) symbol = " ";
-            else                symbol = " ";
-        break;case Full: symbol = " ";
-        break;case Unknown:  symbol = " ";
-        break;case Error: return "";
+                 if(perc <= 10) symbol = "󰢜 ";
+            else if(perc <= 20) symbol = "󰂆 ";
+            else if(perc <= 30) symbol = "󰂇 ";
+            else if(perc <= 40) symbol = "󰂈 ";
+            else if(perc <= 50) symbol = "󰢝 ";
+            else if(perc <= 60) symbol = "󰂉 ";
+            else if(perc <= 70) symbol = "󰢞 ";
+            else if(perc <= 80) symbol = "󰂊 ";
+            else if(perc <= 90) symbol = "󰂋 ";
+            else                symbol = "󰂅 ";
+        break;case Full: symbol = "󱟢 ";
+        break;case Unknown:  symbol = "󰂑 ";
+        break;case Error: return "󰂃 ";
     }
     if(!symbol) return "";
     const char *b = bprintf("%s:%s%d", symbol, percent_pad(perc), perc);

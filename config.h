@@ -67,15 +67,15 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function         format          argument */
-    { check_packages,   " : %s",      "/home/davidk/.cache/pacvars"           },
+    { check_packages,   "󰏖 : %s",      "/home/davidk/.cache/pacvars"           },
     DELIM,
-    { check_updates,    "ﮮ : %s",      "/home/davidk/.cache/pacvars"           },
+    { check_updates,    "󰚰 : %s",      "/home/davidk/.cache/pacvars"           },
     DELIM,
-    { disk_perc,        " : %s%%",   "/"                                     },
+    { disk_perc,        "󰋊 : %s%%",   "/"                                     },
     DELIM,
     { ram_perc,         " : %s%%",    NULL                                    },
     DELIM,
-    { cpu_perc,         "﬙ :%s%%",    NULL                                    },
+    { cpu_perc,         "󰘚 :%s%%",    NULL                                    },
     DELIM,
     { temp,             "%s°C",         "/sys/class/hwmon/hwmon3/temp1_input" },
     DELIM,
